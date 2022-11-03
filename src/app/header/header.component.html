@@ -1,0 +1,21 @@
+<div class="header-container">
+    <div class="logo" (click)="gotoHome()">RareMonk</div>
+    <div class="btn-group">
+        <button class="btn btn-outline-secondary btn-in" (click)="gotoMens()"> Men's Clothing</button>
+        <button class="btn btn-outline-secondary btn-in" (click)="gotoWomens()"> Women's Clothing </button>
+        <button class="btn btn-outline-secondary btn-in" (click)="gotoElectronics()"> Electronics</button>
+        <button class="btn btn-outline-secondary btn-in"(click)="gotoJewellery()" > Jewellery</button>
+    </div>
+    <div class="input-group search">
+        <input  type="search" class="form-control rounded search-in" [(ngModel)]="searchText" (click)="search($event)" placeholder="search products"/>
+        <button type="button" class="btn btn-dark search-btn" >search</button>
+    </div>
+    <div>
+        <input routerLink="cart" type="image" name="Cart" class="cart-img" src="assets\images\shopping-cart.png" width="48" height="48" alt="chart" (click)="gotoCart()"/>
+        <div style="font-size: 10px" class="badge bg-danger cart-img-badge">{{totalItem}}</div>
+    </div>
+    <div class="logout" >
+        <Button class="btn btn-dark" (click)="gotoLogout()">Logout</Button>
+    </div>
+</div>
+

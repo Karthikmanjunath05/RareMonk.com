@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="womens-container">
+    <div class="womens">
+        <div class="top">
+            <h4>Womens's Clothing</h4>
+        </div>
+        <div class="row coll">
+            <ng-container *ngFor="let womens of womenscollection">
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a    class="image">
+                            <img class="pic-1" [src]="womens.image"(click)="goToProduct('womens',womens.id)">
+                            <img class="pic-2" [src]="womens.image"(click)="goToProduct('womens',womens.id)">
+                        </a>
+                        <ul class="product-links">
+                            <li><a    data-tip="Add to Wishlist" (click)="goToProduct('womens',womens.id)"> <fa-icon [icon]="['far', 'heart']"></fa-icon></a></li>
+                            <li><a    data-tip="Compare"(click)="goToProduct('womens',womens.id)"> <fa-icon [icon]="['fas', 'random']"></fa-icon></a></li>
+                            <li><a    data-tip="Quick View" (click)="goToProduct('womens',womens.id)"><fa-icon [icon]="['fas', 'search']"></fa-icon></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content" style="cursor:pointer ;" (click)="goToProduct('womens',womens.id)"> 
+                        <a class="add-to-cart">
+                            <fa-icon [icon]="['fas', 'plus']"></fa-icon>Add to cart
+                        </a>
+                        <h3 class="title"><a   > {{womens.title}} </a></h3>
+                        
+                        <div class="price">${{womens.price}}</div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        </div>
+        </div>
+        <app-footer></app-footer>

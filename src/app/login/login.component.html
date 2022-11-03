@@ -1,0 +1,29 @@
+<div class="login-container">
+    <div class="logo">RareMonk</div>
+    <div class="desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis
+    </div>
+    <img class="image" src="assets\images\pngegg.png" alt="">
+    <form class="login-form">
+        <!-- Email input -->
+        <div class="form-group">
+            <label class="form-label" for="uname">Email address or login ID</label>
+            <input type="text" name="uname" class="form-control" [(ngModel)]="username" />
+
+        </div>
+
+        <!-- Password input -->
+        <div class="form-group">
+            <label class="form-label" for="pword">Password</label>
+            <input type="password" name="pword" class="form-control" [(ngModel)]="password" />
+        </div>
+
+        <div class="btn-container">
+            <div class="error">{{ errorMsg }}</div>
+            <div>
+            <button type="button" class="btn btn-primary btn-block mb-4 signin" (click)="login()">Login</button>
+        </div>
+        </div>
+    </form>
+</div>

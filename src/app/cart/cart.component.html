@@ -1,0 +1,133 @@
+<app-header></app-header>
+<section class="h-100 gradient-custom">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center my-4">
+      <div class="col-md-8">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Cart - 2 items</h5>
+          </div>
+          <div class="card-body" *ngFor="let item of products; let i = index">
+            <!-- Single item -->
+            <div class="row">
+              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                <!-- Image -->
+                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                  <img [src]="item?.image" class="w-100" alt="Blue Jeans Jacket" />
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                  </a>
+                </div>
+                <!-- Image -->
+              </div>
+
+              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                <!-- Data -->
+                <p><strong>{{item?.title}}</strong></p>
+                <p><strong>Category:{{item?.category}}</strong></p>
+                <p>Description: {{item?.description}}</p>
+                <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                  title="Remove item">
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                  title="Move to the wish list">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <!-- Data -->
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <!-- Quantity -->
+                <div class="d-flex mb-4" style="max-width: 300px">
+                  <button class="btn btn-primary px-3 me-2 as"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()" (click)="removeItem(item)">
+                    <i class="fas fa-minus">Remove</i>
+                  </button>
+
+                  <div class="form-outline">
+                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" />
+                    <label class="form-label" for="form1">Quantity</label>
+                  </div>
+
+                  <button class="btn btn-primary px-3 ms-2 as"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()" (click)="addtoCart(item)">
+                    <i class="fas fa-plus"> Add</i>
+                  </button>
+                </div>
+                <!-- Quantity -->
+
+                <!-- Price -->
+                <p class="text-start text-md-center">
+                  <strong>$ {{item?.price}}</strong>
+                </p>
+                <!-- Price -->
+              </div>
+            </div>
+            <!-- Single item -->
+
+            <hr class="my-4" />
+
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-body">
+            <p><strong>Expected shipping delivery</strong></p>
+            <p class="mb-0">12.10.2020 - 14.10.2020</p>
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body">
+            <p><strong>We accept</strong></p>
+            <img class="me-2" width="45px"
+              src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+              alt="Visa" />
+            <img class="me-2" width="45px"
+              src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+              alt="American Express" />
+            <img class="me-2" width="45px"
+              src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+              alt="Mastercard" />
+            <img class="me-2" width="45px"
+              src="data:image/png;base64,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"
+              alt="PayPal acceptance mark" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Summary</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                Products
+                <span>$ {{grandTotal}}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                Shipping
+                <span>Free</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                <div>
+                  <strong>Total amount</strong>
+                  <strong>
+                    <p class="mb-0">(including VAT)</p>
+                  </strong>
+                </div>
+                <span><strong>$ {{grandTotal}}</strong></span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn btn-primary btn-lg btn-block" (click)="gotopay()">
+              Go to checkout
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

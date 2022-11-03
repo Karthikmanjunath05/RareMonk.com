@@ -1,0 +1,34 @@
+<app-header></app-header>
+<div class="electronics-container">
+    <div class="top">
+        <h4>Electrical Products</h4> 
+    </div>
+
+<div class="row coll">
+    <ng-container *ngFor="let ele of electronicscollection">
+    <div class="col-md-3 col-sm-6">
+        <div class="product-grid">
+            <div class="product-image">
+                <a    class="image">
+                    <img class="pic-1" [src]="ele.image"(click)="goToProduct('electrics',ele.id)">
+                    <img class="pic-2" [src]="ele.image"(click)="goToProduct('electrics',ele.id)">
+                </a>
+                <ul class="product-links">
+                    <li><a    data-tip="Add to Wishlist" (click)="goToProduct('electrics',ele.id)"> <fa-icon [icon]="['far', 'heart']"></fa-icon></a></li>
+                    <li><a    data-tip="Compare"(click)="goToProduct('electrics',ele.id)"> <fa-icon [icon]="['fas', 'random']"></fa-icon></a></li>
+                    <li><a    data-tip="Quick View" (click)="goToProduct('electrics',ele.id)"><fa-icon [icon]="['fas', 'search']"></fa-icon></a></li>
+                </ul>
+            </div>
+            <div class="product-content" style="cursor:pointer ;" (click)="goToProduct('electrics',ele.id)"> 
+                <a class="add-to-cart">
+                    <fa-icon [icon]="['fas', 'plus']"></fa-icon>Add to cart
+                </a>
+                <h3 class="title"><a   > {{ele.title}} </a></h3>
+                
+                <div class="price">${{ele.price}}</div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+</div>
+<app-footer></app-footer>
